@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwfd4rfvka1gp"]
+
+[ext_resource type="Script" path="res://Nodes/main_menu_controller.gd" id="1_4dced"]
+[ext_resource type="Texture2D" uid="uid://bx66t0rqfa4un" path="res://Assets/UI/Card X3.png" id="1_mkiml"]
+[ext_resource type="LabelSettings" uid="uid://4p2jgfyhiofo" path="res://Assets/font/Text.tres" id="2_a3vj5"]
+[ext_resource type="Script" path="res://Scripts/ControlTextoMenu.gd" id="2_woqri"]
+[ext_resource type="Texture2D" uid="uid://bxv2k8y6sddx8" path="res://Assets/UI/buttons/StartNormal.png" id="4_7y50w"]
+[ext_resource type="Texture2D" uid="uid://dyp3xb63wbxjr" path="res://Assets/UI/buttons/StartActive.png" id="5_qp2hq"]
+[ext_resource type="Texture2D" uid="uid://c2bvh45b7san6" path="res://Assets/UI/buttons/StartHover.png" id="6_2gqw1"]
+[ext_resource type="AudioStream" uid="uid://bxjk5k3f4a7mv" path="res://Assets/sound/DOS-88 - City Stomper.mp3" id="7_rdgjv"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4dced")
+
+[node name="Titulo" type="Label" parent="."]
+top_level = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -13.0
+offset_right = 576.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rock Paper Scissors"
+label_settings = ExtResource("2_a3vj5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("2_woqri")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="VBoxContainer"]
+z_index = -1
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_mkiml")
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Background"]
+top_level = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = 126.0
+offset_right = 57.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("4_7y50w")
+texture_pressed = ExtResource("5_qp2hq")
+texture_hover = ExtResource("6_2gqw1")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rdgjv")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Background/TextureButton" to="." method="_on_texture_button_pressed"]

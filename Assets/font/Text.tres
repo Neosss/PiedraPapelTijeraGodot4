@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://4p2jgfyhiofo"]
+
+[ext_resource type="FontFile" uid="uid://cbl8q3g6krfl2" path="res://Assets/font/nasalization-rg.otf" id="1_xcq3m"]
+
+[resource]
+font = ExtResource("1_xcq3m")
+font_size = 48
